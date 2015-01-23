@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WixLocalization Culture="en-US" xmlns="http://schemas.microsoft.com/wix/2006/localization" >
+	<String Id="CurlytARPCOMMENTS">---</String>
+	<String Id="CurlytARPCONTACT">Andrey V.Rychkov (curlyt@wholegroup.com)</String>
+	<String Id="CurlytUninstall">Uninstall</String>
+	<String Id="CurlytManufacturer">Andrey V.Rychkov</String>
+	<String Id="CurlytDescription">---</String>
+	<String Id="CurlytError01">Newer version already installed</String>
+	<String Id="CurlytOptions">Settings</String>
+	<String Id="CurlytUninstallPage">http://curlyt.wholegroup.com/uninstall.html</String>
+	<String Id="CurlytHelpPage">http://curlyt.wholegroup.com/index.html#help</String>
+</WixLocalization>

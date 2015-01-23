@@ -1,0 +1,78 @@
+AFK South Africa
+ARA Saudi Arabia
+AZE Azerbaijan
+BEL Belarus
+BGR Bulgaria
+BNG India
+CAT Spain
+CHT Taiwan
+CSY Czech Republic
+CYM United Kingdom
+DAN Denmark
+DEU Germany
+DIV Maldives
+ELL Greece
+ENU United States
+ESP Spain
+ETI Estonia
+EUQ Spain
+FAR Iran
+FIN Finland
+FOS Faroe Islands
+FRA France
+GLC Spain
+GUJ India
+HEB Israel
+HIN India
+HRV Croatia
+HUN Hungary
+HYE Armenia
+IND Indonesia
+ISL Iceland
+ITA Italy
+IVL Invariant Country
+JPN Japan
+KAN India
+KAT Georgia
+KKZ Kazakhstan
+KNK India
+KOR Korea
+KYR Kyrgyzstan
+LTH Lithuania
+LVI Latvia
+MAR India
+MKI Spain
+MLT Malta
+MON Mongolia
+MRI New Zealand
+MSL Malaysia
+MYM India
+NLD Netherlands
+NOR Norway
+NSO South Africa
+PAN India
+PLK Poland
+PTB Brazil
+QUB Bolivia
+ROM Romania
+RUS Russia
+SAN India
+SKY Slovakia
+SLV Slovenia
+SME Norway
+SQI Albania
+SVE Sweden
+SWK Kenya
+SYR Syria
+TAM India
+TEL India
+THA Thailand
+TRK Turkey
+TSN South Africa
+TTT Russia
+UKR Ukraine
+URD Turkey
+UZB Uzbekistan
+VIT Viet Nam
+XHO South Africa
+ZUL South Africa

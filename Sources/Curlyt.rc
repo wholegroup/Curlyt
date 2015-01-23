@@ -1,0 +1,314 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "atlres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1251)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "Curlyt.ico"
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Russian resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_UNKNOW              ICON                    "Unknow.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_SETTINGS DIALOGEX 0, 0, 180, 310
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Параметры Curlyt"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Применить",IDOK,67,291,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,123,291,50,14
+    COMBOBOX        IDC_COMBO_LANGUAGES,93,92,72,108,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "",IDC_STATIC,7,3,165,76
+    GROUPBOX        "",IDC_STATIC,7,83,166,202
+    LTEXT           "Язык программы",IDC_STATIC_LANG,17,94,70,8
+    CTEXT           "Индикатор клавиатурной раскладки, который всегда находится перед вашими глазами",IDC_STATIC,14,11,149,26
+    RTEXT           "WWW:",IDC_STATIC_WWW,15,53,41,8
+    RTEXT           "E-mail:",IDC_STATIC_EMAIL,15,65,41,8
+    LTEXT           "http://curlyt.wholegroup.com",IDC_HYPERLINK_WWW,63,53,106,8
+    LTEXT           "curlyt@wholegroup.com",IDC_HYPERLINK_EMAIL,63,65,106,8
+    CONTROL         "Текстовый",IDC_RADIO_VIEW_TEXT,"Button",BS_AUTORADIOBUTTON,103,117,53,10
+    CONTROL         "В виде флага",IDC_RADIO_VIEW_FLAG,"Button",BS_AUTORADIOBUTTON,103,132,61,10
+    LTEXT           "Прозрачность",IDC_STATIC_TRANSPARENCY,15,253,57,8
+    CONTROL         "Маленький",IDC_RADIO_VIEW_SMALL,"Button",BS_AUTORADIOBUTTON,103,160,53,10
+    CONTROL         "Большой",IDC_RADIO_VIEW_LARGE,"Button",BS_AUTORADIOBUTTON,103,175,45,10
+    CONTROL         "",IDC_SLIDER_TRANSPARENCY,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,71,249,73,15
+    PUSHBUTTON      "Цвет текста",IDC_BUTTON_COLOR_TEXT,19,156,66,14
+    PUSHBUTTON      "Цвет фона",IDC_BUTTON_COLOR_BACKGROUND,19,172,66,14
+    CONTROL         "Прозрачный фон",IDC_CHECK_TRANSPARENT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,143,70,10
+    GROUPBOX        "Размер",IDC_STATIC_GROUP_SIZE,97,148,68,43
+    GROUPBOX        "Вид",IDC_STATIC_GROUP_APPERANCE,97,107,68,38
+    LTEXT           "90%",IDC_STATIC_PERCENT_TRANSPARENCY,146,253,16,8
+    CTEXT           "|",IDC_STATIC_VIEW_ICON,49,124,3,9
+    CONTROL         "Запускаться вместе с Windows",IDC_CHECK_AUTOSTART,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,32,268,120,10
+    GROUPBOX        "Индикатор",IDC_STATIC_GROUP_INDICATOR,14,107,77,84
+    GROUPBOX        "Положение",IDC_STATIC_GROUP_LOCATION,14,195,151,51
+    CONTROL         "",IDC_RADIO_LEFT_TOP,"Button",BS_AUTORADIOBUTTON,111,205,11,10
+    CONTROL         "",IDC_RADIO_RIGHT_TOP,"Button",BS_AUTORADIOBUTTON,139,205,11,10
+    CONTROL         "",IDC_RADIO_LEFT_CENTER,"Button",BS_AUTORADIOBUTTON,111,218,11,10
+    CONTROL         "",IDC_RADIO_RIGHT_CENTER,"Button",BS_AUTORADIOBUTTON,139,218,11,10
+    CONTROL         "",IDC_RADIO_LEFT_BOTTOM,"Button",BS_AUTORADIOBUTTON,111,231,11,10
+    CONTROL         "",IDC_RADIO_RIGHT_BOTTOM,"Button",BS_AUTORADIOBUTTON,139,231,11,10
+    CTEXT           "Укажите положение индикатора относительно курсора",IDC_STATIC,22,210,86,25
+    CTEXT           "|",IDC_STATIC_CARET_POS,126,215,8,13
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_SETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 173
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 303
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_CONTEXTMENU MENU 
+BEGIN
+    POPUP "Context"
+    BEGIN
+        MENUITEM "Выход",                       ID_APP_EXIT
+        MENUITEM "Параметры",                   IDB_SETTINGS
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_TRAYTIP             "Curlyt - индикатор клавиатурной раскладки"
+    IDS_WWW                 "http://curlyt.wholegroup.com/index_rus.html"
+    IDS_EMAIL               "mailto:curlyt@wholegroup.com"
+END
+
+#endif    // Russian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Neutral) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MAINDLG DIALOGEX 0, 0, 112, 68
+STYLE DS_SETFONT | WS_SYSMENU
+EXSTYLE WS_EX_NOACTIVATE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+END
+
+IDD_SETTINGS DIALOGEX 0, 0, 180, 310
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Curlyt settings"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Apply",IDOK,67,291,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,123,291,50,14
+    COMBOBOX        IDC_COMBO_LANGUAGES,93,92,72,131,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "",-1,7,3,165,76
+    GROUPBOX        "",-1,7,83,166,202
+    RTEXT           "Language",IDC_STATIC_LANG,17,94,70,8
+    CTEXT           "Keyboard layout indicator that is always visible",-1,14,11,149,26
+    RTEXT           "WWW:",IDC_STATIC_WWW,15,53,41,8
+    RTEXT           "E-mail:",IDC_STATIC_EMAIL,15,65,41,8
+    LTEXT           "http://curlyt.wholegroup.com",IDC_HYPERLINK_WWW,63,53,106,8
+    LTEXT           "curlyt@wholegroup.com",IDC_HYPERLINK_EMAIL,63,65,106,8
+    CONTROL         "Text",IDC_RADIO_VIEW_TEXT,"Button",BS_AUTORADIOBUTTON,103,118,31,10
+    CONTROL         "Flag",IDC_RADIO_VIEW_FLAG,"Button",BS_AUTORADIOBUTTON,103,132,29,10
+    LTEXT           "Transparency",IDC_STATIC_TRANSPARENCY,15,253,57,8
+    CONTROL         "Small",IDC_RADIO_VIEW_SMALL,"Button",BS_AUTORADIOBUTTON,103,160,32,10
+    CONTROL         "Large",IDC_RADIO_VIEW_LARGE,"Button",BS_AUTORADIOBUTTON,103,175,34,10
+    CONTROL         "",IDC_SLIDER_TRANSPARENCY,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,71,249,73,15
+    PUSHBUTTON      "Text color",IDC_BUTTON_COLOR_TEXT,19,156,66,14
+    PUSHBUTTON      "Background",IDC_BUTTON_COLOR_BACKGROUND,19,172,66,14
+    CONTROL         "Transparent BG",IDC_CHECK_TRANSPARENT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,143,70,10
+    GROUPBOX        "Size",IDC_STATIC_GROUP_SIZE,97,148,68,43
+    GROUPBOX        "Appearance",IDC_STATIC_GROUP_APPERANCE,97,107,68,38
+    LTEXT           "90%",IDC_STATIC_PERCENT_TRANSPARENCY,146,253,16,8
+    CTEXT           "|",IDC_STATIC_VIEW_ICON,49,124,3,9
+    CONTROL         "To run after Windows is started",IDC_CHECK_AUTOSTART,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,32,268,117,10
+    GROUPBOX        "Indicator",IDC_STATIC_GROUP_INDICATOR,14,107,77,84
+    GROUPBOX        "Location",IDC_STATIC_GROUP_LOCATION,14,195,151,51
+    CONTROL         "",IDC_RADIO_LEFT_TOP,"Button",BS_AUTORADIOBUTTON,111,205,11,10
+    CONTROL         "",IDC_RADIO_RIGHT_TOP,"Button",BS_AUTORADIOBUTTON,139,205,11,10
+    CONTROL         "",IDC_RADIO_LEFT_CENTER,"Button",BS_AUTORADIOBUTTON,111,218,11,10
+    CONTROL         "",IDC_RADIO_RIGHT_CENTER,"Button",BS_AUTORADIOBUTTON,139,218,11,10
+    CONTROL         "",IDC_RADIO_LEFT_BOTTOM,"Button",BS_AUTORADIOBUTTON,111,231,11,10
+    CONTROL         "",IDC_RADIO_RIGHT_BOTTOM,"Button",BS_AUTORADIOBUTTON,139,231,11,10
+    CTEXT           "Please choose indicator location regarding text cursor",-1,22,210,86,25
+    CTEXT           "|",IDC_STATIC_CARET_POS,126,215,8,13
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_MAINDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 105
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 61
+    END
+
+	 IDD_SETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 173
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 303
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_CONTEXTMENU MENU 
+BEGIN
+    POPUP "Context"
+    BEGIN
+        MENUITEM "Quit",                        ID_APP_EXIT
+        MENUITEM "Settings",                    IDB_SETTINGS
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_TRAYTIP             "Curlyt - keyboard layout indicator"
+    IDS_WWW                 "http://curlyt.wholegroup.com/"
+    IDS_EMAIL               "mailto:curlyt@wholegroup.com"
+END
+
+#endif    // English (Neutral) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""atlres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+

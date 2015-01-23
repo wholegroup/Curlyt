@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?define ProductVersion="$(var.VERSION)" ?>
+
+<!-- имя каталога для установки -->
+<?define DirName="Curlyt" ?>
+
+<!-- для обновления -->
+<?define RTMProductVersion="0.0.0" ?>
+<?define UpgradeCode="1F98B140-9E01-4289-BDEA-5810E2092A4B" ?>
+
+<!-- платформа -->
+<?ifdef OS64 ?>
+	<?define Platform="x64" ?>
+	<?define Is64Platform="yes" ?>
+<?else ?>
+	<?define Platform="x86" ?>
+	<?define Is64Platform="no" ?>
+<?endif ?>
+
+<!-- путь к файлу EULA -->
+<?define LicenseFile="$(var.LICENSE)" ?>
+
+<Wix 
+	xmlns="http://schemas.microsoft.com/wix/2006/wi"
+	xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+
+<Product Id="*"
+	Name="Curlyt $(var.ProductVersion)"
+	Language="$(var.LANGUAGE)"
+	Codepage="$(var.CODEPAGE)"
+	Version='$(var.ProductVersion)'
+	UpgradeCode='$(var.UpgradeCode)'
+	Manufacturer="!(loc.CurlytManufacturer)">
+
+	<Package Id="*"
+		Description="!(loc.CurlytDescription)" 
+		Comments="http://curlyt.wholegroup.com" 
+		InstallerVersion="200"
+		Compressed="yes"
+		Keywords='Installer,MSI,Database'
+		AdminImage="no"
+		Platform="$(var.Platform)"
+	/>
+
+	<Media Id="1" Cabinet="contents.cab" EmbedCab="yes" CompressionLevel="high"/>
+
+	<!-- копоненты для установки -->
+	<Feature Id="Complete" Level="1" >
+		<ComponentRef Id="Curlyt"/>
+		<ComponentRef Id="CurlytIcons"/>
+		<ComponentRef Id="ShortcutMenuComponent" />
+		<ComponentRef Id="ShortcutDesktopComponent" />
+		<ComponentRef Id="ShortcutUninstallComponent" />
+	</Feature>
+
+	<!-- Файлы для установки -->
+	<Directory Id="TARGETDIR" Name="SourceDir">
+		<?ifdef OS64 ?>
+		<!-- установка на x64 -->
+		<Directory Id="ProgramFiles64Folder">
+			<Directory Id="INSTALLDIR" Name='$(var.DirName)'>
+				<Component Id="Curlyt" Guid="83BA75F9-6B80-4114-B562-201C1D40EEF6" DiskId="1" Win64="yes">
+					<Condition>VersionNT64</Condition>
+					<File Id="Curlytbin" Name='Curlyt.exe' Source="Sources/vs2010/x64/Release/Curlyt.exe" />
+					<File Id="Curlytdll" Name='CLHook.dll' Source="Sources/vs2010/x64/Release/CLHook.dll" />
+				</Component>
+				<Directory Id="ICONSDIR" Name='Icons'>
+					<Component Id="CurlytIcons" Guid="1C9382AB-363F-4315-9839-C7B195749ED5" DiskId="1" Win64="yes">
+						<?include Icons.wxs ?>
+					</Component>
+				</Directory>
+			</Directory>
+		</Directory>
+		<?else ?>
+		<!-- установка на x86 --> 
+		<Directory Id="ProgramFilesFolder">
+			<Directory Id="INSTALLDIR" Name='$(var.DirName)'>
+				<Component Id="Curlyt" Guid="C2BF7B82-2EAF-42f3-80CE-87540AF47840" DiskId="1" Win64="no">
+					<Condition>NOT VersionNT64</Condition>
+					<File Id="Curlytbin" Name='Curlyt.exe' Source="Sources/vs2010/Release/Curlyt.exe" />
+					<File Id="Curlytdll" Name='CLHook.dll' Source="Sources/vs2010/Release/CLHook.dll" />
+				</Component>
+				<Directory Id="ICONSDIR" Name='Icons'>
+					<Component Id="CurlytIcons" Guid="02FA83EE-024C-4753-B89E-638F39138D2A" DiskId="1" Win64="no">
+						<?include icons.wxs ?>
+					</Component>
+				</Directory>
+			</Directory>
+		</Directory>
+		<?endif ?>
+
+		<!-- создание ярлыков программы в меню пуск -->
+		<Directory Id="ProgramMenuFolder">
+		<Directory Id="ProgramMenuDir" Name="Curlyt">
+			<Component Id="ShortcutUninstallComponent" Guid="B0E43AC0-874D-4c22-92F1-D99ABD6D4E32">
+				<RegistryKey Root="HKCU" Key="Software\www.wholegroup.com\Curlyt">
+					<RegistryValue Name="ShortcutsUninstall" Value="Installed" Type="string" KeyPath="yes" />
+				</RegistryKey>
+				<Shortcut Id="UninstallProduct"
+					Name="!(loc.CurlytUninstall)"
+					Target="[SystemFolder]msiexec.exe"
+					Arguments="/x [ProductCode]"
+					Directory="ProgramMenuDir"
+					Description="!(loc.CurlytUninstall)">
+				</Shortcut>
+			</Component>
+			<Component Id="ShortcutMenuComponent" Guid="16EBB22F-81A0-4d64-9DDA-B1F08426097E">
+				<RegistryKey Root="HKCU" Key="Software\www.wholegroup.com\Curlyt">
+					<RegistryValue Name="ShortcutsMenu" Value="Installed" Type="string" KeyPath="yes" />
+				</RegistryKey>
+				<Shortcut Id="ApplicationMenu"
+					Advertise="no"
+					Name="Curlyt"
+					Target="[!Curlytbin]"
+					Directory="ProgramMenuDir" />
+				<RemoveFolder Id="RemoveShortcutFolder" On="uninstall" />
+			</Component>
+		</Directory>
+		</Directory>
+
+		<!-- создание ярлыка на программу на рабочем столе -->
+		<Directory Id="DesktopFolder" Name="Desktop">
+			<Component Id="ShortcutDesktopComponent" Guid="BDF3F3DC-B4D9-4524-B8C2-F1DEF3BAFBB1">
+				<RegistryKey Root="HKCU" Key="Software\www.wholegroup.com\Curlyt">
+					<RegistryValue Name="ShortcutsDesktop" Value="Installed" Type="string" KeyPath="yes" />
+				</RegistryKey>
+				<Shortcut Id="ApplicationDesktop"
+					Advertise="no"
+					Name="Curlyt"
+					Target="[!Curlytbin]"
+					Directory="DesktopFolder" />
+			</Component>
+		</Directory>
+
+	</Directory>
+
+	<!-- Различное описание установочного пакета -->
+	<Property Id="ARPCOMMENTS" Value="!(loc.CurlytARPCOMMENTS)" />
+	<Property Id="ARPCONTACT" Value="!(loc.CurlytARPCONTACT)" />
+	<Property Id="ARPPRODUCTICON" Value="Curlyt.ico" />
+	<Property Id="ARPHELPLINK" Value="http://curlyt.wholegroup.com" />
+	<Property Id="ARPREADME" Value="http://curlyt.wholegroup.com" />
+	<Property Id="ARPURLINFOABOUT" Value="http://curlyt.wholegroup.com" />
+	<Property Id="ARPURLUPDATEINFO" Value="http://curlyt.wholegroup.com" />
+	<Property Id="ARPHELPTELEPHONE" Value="+7 912 741 59 23" />
+	<Property Id="ARPAUTHORIZEDCDFPREFIX" Value="http://curlyt.wholegroup.com" />
+	<Property Id="ALLUSERS" Value="1" />
+
+	<CustomAction Id="SetARPINSTALLLOCATION" Property="ARPINSTALLLOCATION" Value="[INSTALLDIR]" />
+	<InstallExecuteSequence>
+		<Custom Action="SetARPINSTALLLOCATION" After="InstallValidate"></Custom>
+	</InstallExecuteSequence>	
+
+	<Icon Id="Curlyt.ico" SourceFile="Sources/Curlyt.ico" />
+	
+	<!-- код для обновления продукта -->
+	<Upgrade Id="$(var.UpgradeCode)">
+		<UpgradeVersion Minimum="$(var.ProductVersion)"
+			IncludeMinimum="no"
+			OnlyDetect="yes"
+			Language="$(var.LANGUAGE)"
+			Property="NEWPRODUCTFOUND" />
+
+		<UpgradeVersion Minimum="$(var.RTMProductVersion)"
+			IncludeMinimum="yes"
+			Maximum="$(var.ProductVersion)"
+			IncludeMaximum="no"
+			Language="$(var.LANGUAGE)"
+			Property="UPGRADEFOUND" />
+	</Upgrade>
+
+	<CustomAction Id="PreventDowngrading" Error="!(loc.CurlytError01)" />
+	<InstallExecuteSequence>
+		<Custom Action="PreventDowngrading" After="FindRelatedProducts">NEWPRODUCTFOUND</Custom>
+		<RemoveExistingProducts Before="InstallInitialize">UPGRADEFOUND</RemoveExistingProducts>
+	</InstallExecuteSequence>
+
+	<InstallUISequence>
+		<Custom Action="PreventDowngrading" After="FindRelatedProducts">NEWPRODUCTFOUND</Custom>
+	</InstallUISequence>
+
+	<!-- запуск программы и открытие страницы со справкой-->
+	<CustomAction Id='LaunchCurlyt' ExeCommand="[INSTALLDIR]Curlyt.exe" Directory="INSTALLDIR" Return='asyncNoWait' Impersonate="yes" />
+	<InstallExecuteSequence>
+		<Custom Action='LaunchCurlyt' After='InstallFinalize'>NOT Installed</Custom>
+	</InstallExecuteSequence>
+
+	<!-- код для закрытия программы (при удалении или upgrade) -->
+	<util:CloseApplication Id="RunningSmartSVN" Target="Curlyt.exe" Property="RUNNINGAPP" CloseMessage="yes" RebootPrompt="no" />
+	<InstallExecuteSequence>
+		<Custom Action="WixCloseApplications" Before="InstallInitialize">Installed</Custom>
+	</InstallExecuteSequence> 
+
+	<!-- определени GUI -->
+	<Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
+	<UIRef Id="WixUI_InstallDir" />
+	<WixVariable Id='WixUILicenseRtf' Value='$(var.LicenseFile)' />
+</Product>
+
+</Wix>

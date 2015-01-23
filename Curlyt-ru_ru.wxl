@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WixLocalization Culture="ru-RU" xmlns="http://schemas.microsoft.com/wix/2006/localization" >
+	<String Id="CurlytARPCOMMENTS">Индикатор текущей клавиатурной раскладки, который всегда находится перед вашими глазами</String>
+	<String Id="CurlytARPCONTACT">Андрей В. Рычков (curlyt@wholegroup.com)</String>
+	<String Id="CurlytUninstall">Удалить</String>
+	<String Id="CurlytManufacturer">Андрей В. Рычков</String>
+	<String Id="CurlytDescription">Индикатор текущей клавиатурной раскладки, который всегда находится перед вашими глазами</String>
+	<String Id="CurlytError01">На этот компьютере уже установлена более новая версия</String>
+	<String Id="CurlytOptions">Настройка</String>
+	<String Id="CurlytUninstallPage">http://curlyt.wholegroup.com/uninstall_rus.html</String>
+	<String Id="CurlytHelpPage">http://curlyt.wholegroup.com/index_rus.html#help</String>
+</WixLocalization>
