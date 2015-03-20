@@ -1,4 +1,4 @@
-#pragma once 
+п»ї#pragma once 
 
 #include "resource.h"
 
@@ -9,10 +9,10 @@ class CDlgFlag:
 
 		DECLARE_WND_CLASS(NULL)
 
-		// Конструктор по-умолчанию
+		// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ-СѓРјРѕР»С‡Р°РЅРёСЋ
 		CDlgFlag();
 
-		// Деструктор по-умолчанию
+		// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ-СѓРјРѕР»С‡Р°РЅРёСЋ
 		~CDlgFlag();
 
 		BEGIN_MSG_MAP(CDlgFlag)
@@ -29,6 +29,6 @@ class CDlgFlag:
 
 	public:
 
-		// смена иконки
+		// СЃРјРµРЅР° РёРєРѕРЅРєРё
 		BOOL ChangeIcon(HICON hNewIcon, BYTE bTransparent);
 };

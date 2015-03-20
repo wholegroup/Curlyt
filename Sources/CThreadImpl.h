@@ -1,4 +1,4 @@
-// http://www.codeproject.com/KB/wtl/wtlthreads.aspx
+﻿// http://www.codeproject.com/KB/wtl/wtlthreads.aspx
 
 #pragma once
 

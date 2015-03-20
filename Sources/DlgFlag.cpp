@@ -1,4 +1,4 @@
-/*
+п»ї/*
  * Copyright (C) 2015 Andrey Rychkov <wholegroup@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@
 #include "DlgFlag.h"
 
 //////////////////////////////////////////////////////////////////////////
-// Конструктор по-умолчанию
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ-СѓРјРѕР»С‡Р°РЅРёСЋ
 //
 CDlgFlag::CDlgFlag()
 {
@@ -43,7 +43,7 @@ CDlgFlag::CDlgFlag()
 
 
 //////////////////////////////////////////////////////////////////////////
-// Деструктор по-умолчанию
+// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ-СѓРјРѕР»С‡Р°РЅРёСЋ
 //
 CDlgFlag::~CDlgFlag()
 {
@@ -52,7 +52,7 @@ CDlgFlag::~CDlgFlag()
 
 
 //////////////////////////////////////////////////////////////////////////
-// смена иконки
+// СЃРјРµРЅР° РёРєРѕРЅРєРё
 //
 BOOL CDlgFlag::ChangeIcon(HICON hNewIcon, BYTE bTransparent)
 {
@@ -62,11 +62,11 @@ BOOL CDlgFlag::ChangeIcon(HICON hNewIcon, BYTE bTransparent)
 		return FALSE;
 	}
 
-	// получение оконных координат
+	// РїРѕР»СѓС‡РµРЅРёРµ РѕРєРѕРЅРЅС‹С… РєРѕРѕСЂРґРёРЅР°С‚
 	GetClientRect(&m_rectClient);
 	GetWindowRect(&m_rectWindow);
 
-	// создание битмапа
+	// СЃРѕР·РґР°РЅРёРµ Р±РёС‚РјР°РїР°
 	m_bmpInfo.bmiHeader.biWidth  = m_rectClient.Width(); 
 	m_bmpInfo.bmiHeader.biHeight = m_rectClient.Height(); 
 
@@ -75,13 +75,13 @@ BOOL CDlgFlag::ChangeIcon(HICON hNewIcon, BYTE bTransparent)
 
 	ZeroMemory(pvBuf, m_rectClient.Width() * m_rectClient.Height() << 2);
 
-	// отрисовка иконки
+	// РѕС‚СЂРёСЃРѕРІРєР° РёРєРѕРЅРєРё
 	if (FALSE == DrawIconEx(m_dcMem, 0, 0, hNewIcon, 0, 0, 0, NULL, DI_NORMAL))
 	{
 		_RPT_API_ERROR(DrawIcon);
 	}
 
-	// обновление окна
+	// РѕР±РЅРѕРІР»РµРЅРёРµ РѕРєРЅР°
 	m_blend.SourceConstantAlpha = bTransparent;
 
 	POINT pDst = m_rectWindow.TopLeft();
@@ -93,7 +93,7 @@ BOOL CDlgFlag::ChangeIcon(HICON hNewIcon, BYTE bTransparent)
 		_RPT_API_ERROR(UpdateLayeredWindow);
 	}
 
-	// удаление созданных ресурсов
+	// СѓРґР°Р»РµРЅРёРµ СЃРѕР·РґР°РЅРЅС‹С… СЂРµСЃСѓСЂСЃРѕРІ
 	::SelectObject(m_dcMem, hBmpOld);
 	::DeleteObject(hBmp);
 

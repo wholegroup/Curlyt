@@ -1,4 +1,4 @@
-/*
+п»ї/*
  * Copyright (C) 2015 Andrey Rychkov <wholegroup@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,21 +19,21 @@
 #include "resource.h"
 #include "DlgMain.h"
 
-// создание модуля
+// СЃРѕР·РґР°РЅРёРµ РјРѕРґСѓР»СЏ
 CAppModule g_Module;
 CDlgMain*  g_pDlgMain;
 
 //////////////////////////////////////////////////////////////////////////
-// Запуск программы
+// Р—Р°РїСѓСЃРє РїСЂРѕРіСЂР°РјРјС‹
 //
 INT Run(LPTSTR /*lpstrCmdLine*/ = NULL, BOOL bSettings = FALSE)
 {
-	// запуск цикла сообщений
+	// Р·Р°РїСѓСЃРє С†РёРєР»Р° СЃРѕРѕР±С‰РµРЅРёР№
 	CMessageLoop theLoop;
 
 	g_Module.AddMessageLoop(&theLoop);
 
-	// создание главного диалога
+	// СЃРѕР·РґР°РЅРёРµ РіР»Р°РІРЅРѕРіРѕ РґРёР°Р»РѕРіР°
 	if(NULL == g_pDlgMain->Create(NULL))
 	{
 		ATLTRACE(_T("Main dialog creation failed!\n"));
@@ -41,16 +41,16 @@ INT Run(LPTSTR /*lpstrCmdLine*/ = NULL, BOOL bSettings = FALSE)
 		return 0;
 	}
 
-	// вызов диалога настроек (в случае если была смена языка программы)
+	// РІС‹Р·РѕРІ РґРёР°Р»РѕРіР° РЅР°СЃС‚СЂРѕРµРє (РІ СЃР»СѓС‡Р°Рµ РµСЃР»Рё Р±С‹Р»Р° СЃРјРµРЅР° СЏР·С‹РєР° РїСЂРѕРіСЂР°РјРјС‹)
 	if (bSettings)
 	{
 		g_pDlgMain->PostMessage(WM_COMMAND, IDB_SETTINGS);
 	}
 
-	// код возврата
+	// РєРѕРґ РІРѕР·РІСЂР°С‚Р°
 	INT iRet = theLoop.Run();
 
-	// удаление очереди сообщений
+	// СѓРґР°Р»РµРЅРёРµ РѕС‡РµСЂРµРґРё СЃРѕРѕР±С‰РµРЅРёР№
 	g_Module.RemoveMessageLoop();
 
 	return iRet;
@@ -58,20 +58,20 @@ INT Run(LPTSTR /*lpstrCmdLine*/ = NULL, BOOL bSettings = FALSE)
 
 
 //////////////////////////////////////////////////////////////////////////
-// Входная точка в программу
+// Р’С…РѕРґРЅР°СЏ С‚РѕС‡РєР° РІ РїСЂРѕРіСЂР°РјРјСѓ
 //
 int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPTSTR lpstrCmdLine, int /*nCmdShow*/)
 {
-	// включение отчета о утечках памяти
+	// РІРєР»СЋС‡РµРЅРёРµ РѕС‚С‡РµС‚Р° Рѕ СѓС‚РµС‡РєР°С… РїР°РјСЏС‚Рё
 	#ifdef _DEBUG
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_CHECK_ALWAYS_DF | _CRTDBG_LEAK_CHECK_DF);
 	#endif
 
-	// создание локального мутекса отслеживающего работу программы сбора в пределах терминальной сессии
+	// СЃРѕР·РґР°РЅРёРµ Р»РѕРєР°Р»СЊРЅРѕРіРѕ РјСѓС‚РµРєСЃР° РѕС‚СЃР»РµР¶РёРІР°СЋС‰РµРіРѕ СЂР°Р±РѕС‚Сѓ РїСЂРѕРіСЂР°РјРјС‹ СЃР±РѕСЂР° РІ РїСЂРµРґРµР»Р°С… С‚РµСЂРјРёРЅР°Р»СЊРЅРѕР№ СЃРµСЃСЃРёРё
 	HANDLE  hMutexRun   = NULL;
 	wstring wsMutexName = L"Local\\{9FAF9D80-453E-4b98-A67B-1FD6776755EE}";
 
-	// если мутекс есть, значит копия программы уже запущена
+	// РµСЃР»Рё РјСѓС‚РµРєСЃ РµСЃС‚СЊ, Р·РЅР°С‡РёС‚ РєРѕРїРёСЏ РїСЂРѕРіСЂР°РјРјС‹ СѓР¶Рµ Р·Р°РїСѓС‰РµРЅР°
 	hMutexRun = OpenMutex(0, FALSE, wsMutexName.c_str());
 	if (NULL != hMutexRun)
 	{
@@ -85,7 +85,7 @@ int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPTSTR lp
 		return 0;
 	}
 
-	// создаем новый мутекс
+	// СЃРѕР·РґР°РµРј РЅРѕРІС‹Р№ РјСѓС‚РµРєСЃ
 	hMutexRun = CreateMutex(NULL, TRUE, wsMutexName.c_str());
 	if (NULL == hMutexRun)
 	{
@@ -96,18 +96,18 @@ int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPTSTR lp
 	// this resolves ATL window thunking problem when Microsoft Layer for Unicode (MSLU) is used
 	::DefWindowProc(NULL, 0, 0, 0L);
 
-	// добавление флагов для поддержки контролов
+	// РґРѕР±Р°РІР»РµРЅРёРµ С„Р»Р°РіРѕРІ РґР»СЏ РїРѕРґРґРµСЂР¶РєРё РєРѕРЅС‚СЂРѕР»РѕРІ
 	AtlInitCommonControls(ICC_BAR_CLASSES);
 
-	// инициализация COM
+	// РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ COM
 	HRESULT hRes = ::CoInitialize(NULL);
 	ATLASSERT(SUCCEEDED(hRes));
 
-	// инициализация модууля
+	// РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РјРѕРґСѓСѓР»СЏ
 	hRes = g_Module.Init(NULL, hInstance);
 	ATLASSERT(SUCCEEDED(hRes));
 
-	// запуск
+	// Р·Р°РїСѓСЃРє
 	INT iRet = 0;
 	
 	do 
@@ -128,10 +128,10 @@ int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPTSTR lp
 		}
 	} while (CHANGE_LANGUAGE == iRet);
 
-	// завершаем программы
+	// Р·Р°РІРµСЂС€Р°РµРј РїСЂРѕРіСЂР°РјРјС‹
 	g_Module.Term();
 
-	// очистка ресурсов COM
+	// РѕС‡РёСЃС‚РєР° СЂРµСЃСѓСЂСЃРѕРІ COM
 	::CoUninitialize();
 
 	return iRet;

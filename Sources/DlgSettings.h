@@ -1,9 +1,9 @@
-#pragma once 
+п»ї#pragma once 
 
 #include "resource.h"
 
 //////////////////////////////////////////////////////////////////////////
-// Класс диалога параметров программы
+// РљР»Р°СЃСЃ РґРёР°Р»РѕРіР° РїР°СЂР°РјРµС‚СЂРѕРІ РїСЂРѕРіСЂР°РјРјС‹
 //
 class CDlgSettings :
 	public CIndirectDialogImpl<CDlgSettings, CResDlgTemplate>
@@ -35,84 +35,84 @@ class CDlgSettings :
 			NOTIFY_ID_HANDLER(IDC_SLIDER_TRANSPARENCY, OnChangeTransparent)
 		END_MSG_MAP()
 
-		// Конструктор по-умолчанию
+		// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ-СѓРјРѕР»С‡Р°РЅРёСЋ
 		CDlgSettings(CDlgMain *pMainDlg);
 
-		// Инициализация шаблона диалога
+		// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ С€Р°Р±Р»РѕРЅР° РґРёР°Р»РѕРіР°
 		VOID DoInitTemplate();
 
-		// Инициализация контролов диалога
+		// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РєРѕРЅС‚СЂРѕР»РѕРІ РґРёР°Р»РѕРіР°
 		VOID DoInitControls();
 
 	private:
 
-		CDlgMain*     m_pMainDlg;       // указатель на главный диалог
-		CDlgFlag*     m_pCaretFlag;     // указатель на окно-индикатор раскладки
-		CMapWordStr*  m_pMapLanguages;  // указатель на массив доступных языков
-		WORD          m_wLanguageID;    // ИД текущего языка программы
-		CComboBox     m_cbLanguages;    // выпадающий список языков
-		CHyperLink    m_hlEmail;        // гиперссылка на e-mail
-		CHyperLink    m_hlWWW;          // гиперссылка на WWW
-		COLORREF      m_crText;         // цвет текста
-		COLORREF      m_crBackground;   // цвет фона
-		CButton       m_btnViewText;    // отображать на окне-индикаторе текст
-		CButton       m_btnViewFlag;    // отображать на окне-индикаторе флаг
-		CButton       m_btnViewSmall;   // отображать маленькое окно-индикатор
-		CButton       m_btnViewLarge;   // отображать увеличенное окно-индикатор
-		CButton       m_btnTransparent; // сделать фон прозрачным
-		CTrackBarCtrl m_tbTransparency; // ползунок изменения индекса прозрачности
-		CStatic       m_sTransparency;  // текст для вывода процента прозрачности
-		CButton       m_btnColor;       // цвет текста 
-		CButton       m_btnBGColor;     // цвет фона
-		CButton       m_btnAutostart;   // автостарт
-		CButton       m_btnLeftTop;     // позиции окна-индикатора
+		CDlgMain*     m_pMainDlg;       // СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РіР»Р°РІРЅС‹Р№ РґРёР°Р»РѕРі
+		CDlgFlag*     m_pCaretFlag;     // СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РѕРєРЅРѕ-РёРЅРґРёРєР°С‚РѕСЂ СЂР°СЃРєР»Р°РґРєРё
+		CMapWordStr*  m_pMapLanguages;  // СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РјР°СЃСЃРёРІ РґРѕСЃС‚СѓРїРЅС‹С… СЏР·С‹РєРѕРІ
+		WORD          m_wLanguageID;    // РР” С‚РµРєСѓС‰РµРіРѕ СЏР·С‹РєР° РїСЂРѕРіСЂР°РјРјС‹
+		CComboBox     m_cbLanguages;    // РІС‹РїР°РґР°СЋС‰РёР№ СЃРїРёСЃРѕРє СЏР·С‹РєРѕРІ
+		CHyperLink    m_hlEmail;        // РіРёРїРµСЂСЃСЃС‹Р»РєР° РЅР° e-mail
+		CHyperLink    m_hlWWW;          // РіРёРїРµСЂСЃСЃС‹Р»РєР° РЅР° WWW
+		COLORREF      m_crText;         // С†РІРµС‚ С‚РµРєСЃС‚Р°
+		COLORREF      m_crBackground;   // С†РІРµС‚ С„РѕРЅР°
+		CButton       m_btnViewText;    // РѕС‚РѕР±СЂР°Р¶Р°С‚СЊ РЅР° РѕРєРЅРµ-РёРЅРґРёРєР°С‚РѕСЂРµ С‚РµРєСЃС‚
+		CButton       m_btnViewFlag;    // РѕС‚РѕР±СЂР°Р¶Р°С‚СЊ РЅР° РѕРєРЅРµ-РёРЅРґРёРєР°С‚РѕСЂРµ С„Р»Р°Рі
+		CButton       m_btnViewSmall;   // РѕС‚РѕР±СЂР°Р¶Р°С‚СЊ РјР°Р»РµРЅСЊРєРѕРµ РѕРєРЅРѕ-РёРЅРґРёРєР°С‚РѕСЂ
+		CButton       m_btnViewLarge;   // РѕС‚РѕР±СЂР°Р¶Р°С‚СЊ СѓРІРµР»РёС‡РµРЅРЅРѕРµ РѕРєРЅРѕ-РёРЅРґРёРєР°С‚РѕСЂ
+		CButton       m_btnTransparent; // СЃРґРµР»Р°С‚СЊ С„РѕРЅ РїСЂРѕР·СЂР°С‡РЅС‹Рј
+		CTrackBarCtrl m_tbTransparency; // РїРѕР»Р·СѓРЅРѕРє РёР·РјРµРЅРµРЅРёСЏ РёРЅРґРµРєСЃР° РїСЂРѕР·СЂР°С‡РЅРѕСЃС‚Рё
+		CStatic       m_sTransparency;  // С‚РµРєСЃС‚ РґР»СЏ РІС‹РІРѕРґР° РїСЂРѕС†РµРЅС‚Р° РїСЂРѕР·СЂР°С‡РЅРѕСЃС‚Рё
+		CButton       m_btnColor;       // С†РІРµС‚ С‚РµРєСЃС‚Р° 
+		CButton       m_btnBGColor;     // С†РІРµС‚ С„РѕРЅР°
+		CButton       m_btnAutostart;   // Р°РІС‚РѕСЃС‚Р°СЂС‚
+		CButton       m_btnLeftTop;     // РїРѕР·РёС†РёРё РѕРєРЅР°-РёРЅРґРёРєР°С‚РѕСЂР°
 		CButton       m_btnLeftCenter;  //
 		CButton       m_btnLeftBottom;  //
 		CButton       m_btnRightTop;    //
 		CButton       m_btnRightCenter; // 
 		CButton       m_btnRightBottom; //
-		CStatic       m_sTextCaret1;    // изображение текстового курсора #1 для отображение позиции
-		CStatic       m_sTextCaret2;    // изображение текстового курсора #1 для выбора позиции
+		CStatic       m_sTextCaret1;    // РёР·РѕР±СЂР°Р¶РµРЅРёРµ С‚РµРєСЃС‚РѕРІРѕРіРѕ РєСѓСЂСЃРѕСЂР° #1 РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ РїРѕР·РёС†РёРё
+		CStatic       m_sTextCaret2;    // РёР·РѕР±СЂР°Р¶РµРЅРёРµ С‚РµРєСЃС‚РѕРІРѕРіРѕ РєСѓСЂСЃРѕСЂР° #1 РґР»СЏ РІС‹Р±РѕСЂР° РїРѕР·РёС†РёРё
 
 	protected:
 
-		// Инициализация диалога
+		// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РґРёР°Р»РѕРіР°
 		LRESULT OnInitDialog(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 
-		// Обработка WM_DESTROY
+		// РћР±СЂР°Р±РѕС‚РєР° WM_DESTROY
 		LRESULT OnDestroy(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 
-		// Обработка WM_TIMER - создание мигающего курсора
+		// РћР±СЂР°Р±РѕС‚РєР° WM_TIMER - СЃРѕР·РґР°РЅРёРµ РјРёРіР°СЋС‰РµРіРѕ РєСѓСЂСЃРѕСЂР°
 		LRESULT OnTimer(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 
-		// Обработка IDOK - сохранение настроек
+		// РћР±СЂР°Р±РѕС‚РєР° IDOK - СЃРѕС…СЂР°РЅРµРЅРёРµ РЅР°СЃС‚СЂРѕРµРє
 		LRESULT OnOK(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled);
 
-		// Обработка IDCANCEL
+		// РћР±СЂР°Р±РѕС‚РєР° IDCANCEL
 		LRESULT OnCancel(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled);
 
-		// Закрытие диалога
+		// Р—Р°РєСЂС‹С‚РёРµ РґРёР°Р»РѕРіР°
 		VOID CloseDialog(int nVal);
 
-		// Обработка смены языка
+		// РћР±СЂР°Р±РѕС‚РєР° СЃРјРµРЅС‹ СЏР·С‹РєР°
 		LRESULT OnChangeLanguage(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled);
 
-		// Смена цвета текста
+		// РЎРјРµРЅР° С†РІРµС‚Р° С‚РµРєСЃС‚Р°
 		LRESULT OnChangeColor(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled);
 
-		// Смена цвета фона
+		// РЎРјРµРЅР° С†РІРµС‚Р° С„РѕРЅР°
 		LRESULT OnChangeBackground(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled);
 
-		// Смена режима отображения
+		// РЎРјРµРЅР° СЂРµР¶РёРјР° РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ
 		LRESULT OnChangeView(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled);
 
-		// Изменение прозрачности
+		// РР·РјРµРЅРµРЅРёРµ РїСЂРѕР·СЂР°С‡РЅРѕСЃС‚Рё
 		LRESULT OnChangeTransparent(INT wID, LPNMHDR pnmh, BOOL& bHandled);
 
-		// Изменение позиции окна-индикатора
+		// РР·РјРµРЅРµРЅРёРµ РїРѕР·РёС†РёРё РѕРєРЅР°-РёРЅРґРёРєР°С‚РѕСЂР°
 		LRESULT OnChangePos(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled);
 
-		// Обновляет изображение окна-индикатора раскладки
+		// РћР±РЅРѕРІР»СЏРµС‚ РёР·РѕР±СЂР°Р¶РµРЅРёРµ РѕРєРЅР°-РёРЅРґРёРєР°С‚РѕСЂР° СЂР°СЃРєР»Р°РґРєРё
 		VOID UpdateTestCaretFlag();
 };
 

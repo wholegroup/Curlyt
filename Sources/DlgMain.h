@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 
 #include "resource.h"
 
@@ -11,31 +11,31 @@ class CDlgMain;
 class CDlgSettings;
 
 //////////////////////////////////////////////////////////////////////////
-// Класс для отслеживания сокрытия каретки
+// РљР»Р°СЃСЃ РґР»СЏ РѕС‚СЃР»РµР¶РёРІР°РЅРёСЏ СЃРѕРєСЂС‹С‚РёСЏ РєР°СЂРµС‚РєРё
 //
 class CExistCaret:
 	public CThreadImpl<CExistCaret>
 {
 	private:
-		CDlgMain* m_pMainDlg;    // ссылка на главный класс программы
-		PHANDLE   m_phEventExit; // событие завершения программы
-		PHANDLE   m_phEventHide; // мутекс сигнализирующий о сокрытии каретки
+		CDlgMain* m_pMainDlg;    // СЃСЃС‹Р»РєР° РЅР° РіР»Р°РІРЅС‹Р№ РєР»Р°СЃСЃ РїСЂРѕРіСЂР°РјРјС‹
+		PHANDLE   m_phEventExit; // СЃРѕР±С‹С‚РёРµ Р·Р°РІРµСЂС€РµРЅРёСЏ РїСЂРѕРіСЂР°РјРјС‹
+		PHANDLE   m_phEventHide; // РјСѓС‚РµРєСЃ СЃРёРіРЅР°Р»РёР·РёСЂСѓСЋС‰РёР№ Рѕ СЃРѕРєСЂС‹С‚РёРё РєР°СЂРµС‚РєРё
 
 	public:
 
-		// Конструктор с передачей указатель на главный диалог
+		// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїРµСЂРµРґР°С‡РµР№ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РіР»Р°РІРЅС‹Р№ РґРёР°Р»РѕРі
 		CExistCaret(CDlgMain* pMainDlg, PHANDLE phEventExit, PHANDLE phEventHide);
 
-		// Деструктор
+		// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 		~CExistCaret(){}
 
-		// Цикл слежения за кареткой
+		// Р¦РёРєР» СЃР»РµР¶РµРЅРёСЏ Р·Р° РєР°СЂРµС‚РєРѕР№
 		DWORD Run();
 };
 
 
 //////////////////////////////////////////////////////////////////////////
-// Класс главного окна
+// РљР»Р°СЃСЃ РіР»Р°РІРЅРѕРіРѕ РѕРєРЅР°
 //
 class CDlgMain : 
 	public CIndirectDialogImpl<CDlgMain, CResDlgTemplate>,
@@ -46,7 +46,7 @@ class CDlgMain :
 {
 	public:
 
-		// карта сообщений
+		// РєР°СЂС‚Р° СЃРѕРѕР±С‰РµРЅРёР№
 		BEGIN_MSG_MAP(CDlgMain)
 			CHAIN_MSG_MAP(CTrayIconImpl<CDlgMain>)
 			MESSAGE_HANDLER(WM_INITDIALOG, OnInitDialog)
@@ -66,7 +66,7 @@ class CDlgMain :
 
 	public:
 
-		// ID диалога
+		// ID РґРёР°Р»РѕРіР°
 		enum { IDD = IDD_MAINDLG };
 
 	protected:
@@ -77,45 +77,45 @@ class CDlgMain :
 		LPGETCONKEYBLAYNAME m_lpGetConKeybLayName;  //
 		HWINEVENTHOOK       m_hEventHook;           //
 
-		CMapWordStr         m_mapLanguages;         // список языков программы(ID, язык)
-		CMapWordStr         m_mapLangSystem;        // список языков установленных в системе  
-		CMapWordStr         m_mapLangAcronym;       // список аббревиатур установленных в системе языков
-		CMapWordPHIcon      m_mapIconsLarge;        // список иконок 24x24
-		CMapWordPHIcon      m_mapIconsSmall;        // список иконок 16x16
-		CMapWordPHIcon      m_mapIconsAcronymSmall; // список иконок с аббревиатурами установленных языков 16x16
-		CMapWordPHIcon      m_mapIconsAcronymLarge; // список иконок с аббревиатурами установленных языков 24x24
+		CMapWordStr         m_mapLanguages;         // СЃРїРёСЃРѕРє СЏР·С‹РєРѕРІ РїСЂРѕРіСЂР°РјРјС‹(ID, СЏР·С‹Рє)
+		CMapWordStr         m_mapLangSystem;        // СЃРїРёСЃРѕРє СЏР·С‹РєРѕРІ СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹С… РІ СЃРёСЃС‚РµРјРµ  
+		CMapWordStr         m_mapLangAcronym;       // СЃРїРёСЃРѕРє Р°Р±Р±СЂРµРІРёР°С‚СѓСЂ СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹С… РІ СЃРёСЃС‚РµРјРµ СЏР·С‹РєРѕРІ
+		CMapWordPHIcon      m_mapIconsLarge;        // СЃРїРёСЃРѕРє РёРєРѕРЅРѕРє 24x24
+		CMapWordPHIcon      m_mapIconsSmall;        // СЃРїРёСЃРѕРє РёРєРѕРЅРѕРє 16x16
+		CMapWordPHIcon      m_mapIconsAcronymSmall; // СЃРїРёСЃРѕРє РёРєРѕРЅРѕРє СЃ Р°Р±Р±СЂРµРІРёР°С‚СѓСЂР°РјРё СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹С… СЏР·С‹РєРѕРІ 16x16
+		CMapWordPHIcon      m_mapIconsAcronymLarge; // СЃРїРёСЃРѕРє РёРєРѕРЅРѕРє СЃ Р°Р±Р±СЂРµРІРёР°С‚СѓСЂР°РјРё СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹С… СЏР·С‹РєРѕРІ 24x24
 		
-		CDlgFlag*           m_pCaretFlag;           // указатель на окно-индикатор для текстовой каретки
-		CDlgSettings*       m_pSettingsDlg;         // указатель на диалог настроек
+		CDlgFlag*           m_pCaretFlag;           // СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РѕРєРЅРѕ-РёРЅРґРёРєР°С‚РѕСЂ РґР»СЏ С‚РµРєСЃС‚РѕРІРѕР№ РєР°СЂРµС‚РєРё
+		CDlgSettings*       m_pSettingsDlg;         // СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РґРёР°Р»РѕРі РЅР°СЃС‚СЂРѕРµРє
 
-		HANDLE              m_hEventExit;           // событие завершения 
-		CExistCaret         m_thCaret;              // тред сокрытия каретки
+		HANDLE              m_hEventExit;           // СЃРѕР±С‹С‚РёРµ Р·Р°РІРµСЂС€РµРЅРёСЏ 
+		CExistCaret         m_thCaret;              // С‚СЂРµРґ СЃРѕРєСЂС‹С‚РёСЏ РєР°СЂРµС‚РєРё
 
-		WORD                m_wLanguageID;          // ИД выбранного языка программы
-		BOOL                m_bViewTrayLang;        // показывать значок раскладки в трее
-		BOOL                m_bViewFlag;            // показывать флаг текущего языка в трее
-		BOOL                m_bViewLarge;           // показывать большой флаг (24x24) у каретки
-		DWORD               m_crIconAcronym;        // цвет текста иконки акронима
-		DWORD               m_crBGIconAcronym;      // цвет фона иконки акронима
-		BYTE                m_bTransparent;         // прозрачность (0 - полная прозрачность)
+		WORD                m_wLanguageID;          // РР” РІС‹Р±СЂР°РЅРЅРѕРіРѕ СЏР·С‹РєР° РїСЂРѕРіСЂР°РјРјС‹
+		BOOL                m_bViewTrayLang;        // РїРѕРєР°Р·С‹РІР°С‚СЊ Р·РЅР°С‡РѕРє СЂР°СЃРєР»Р°РґРєРё РІ С‚СЂРµРµ
+		BOOL                m_bViewFlag;            // РїРѕРєР°Р·С‹РІР°С‚СЊ С„Р»Р°Рі С‚РµРєСѓС‰РµРіРѕ СЏР·С‹РєР° РІ С‚СЂРµРµ
+		BOOL                m_bViewLarge;           // РїРѕРєР°Р·С‹РІР°С‚СЊ Р±РѕР»СЊС€РѕР№ С„Р»Р°Рі (24x24) Сѓ РєР°СЂРµС‚РєРё
+		DWORD               m_crIconAcronym;        // С†РІРµС‚ С‚РµРєСЃС‚Р° РёРєРѕРЅРєРё Р°РєСЂРѕРЅРёРјР°
+		DWORD               m_crBGIconAcronym;      // С†РІРµС‚ С„РѕРЅР° РёРєРѕРЅРєРё Р°РєСЂРѕРЅРёРјР°
+		BYTE                m_bTransparent;         // РїСЂРѕР·СЂР°С‡РЅРѕСЃС‚СЊ (0 - РїРѕР»РЅР°СЏ РїСЂРѕР·СЂР°С‡РЅРѕСЃС‚СЊ)
 
-		DWORD               m_dwCurrentThread;      // ИД собственного потока
-		HWND                m_hWndActive;           // хендл текущего активного окна
-		HWND                m_hWndActiveLast;       // хендл последнего активного окна
-		HWND                m_hWndFocus;            // хендл окна на котором находится фокус
-		HWND                m_hWndFocusLast;        // хендл окна на котором находился фокус последний раз
-		BOOL                m_bConsole;             // TRUE, если окно консольное
-		HKL                 m_hKLCurrent;           // активная раскладка
-		HKL                 m_hKLLast;              // последняя активная раскладка
-		DWORD               m_dwActProcessId;       // ИД активного процесса
-		DWORD               m_dwActThreadId;        // ИД активного треда
-		EDITUITYPE          m_eEditUIType;          // Тип окна ввода текста
-		ICONPOSITION        m_eIconPosition;        // Позиция окна индикатора-иконки
+		DWORD               m_dwCurrentThread;      // РР” СЃРѕР±СЃС‚РІРµРЅРЅРѕРіРѕ РїРѕС‚РѕРєР°
+		HWND                m_hWndActive;           // С…РµРЅРґР» С‚РµРєСѓС‰РµРіРѕ Р°РєС‚РёРІРЅРѕРіРѕ РѕРєРЅР°
+		HWND                m_hWndActiveLast;       // С…РµРЅРґР» РїРѕСЃР»РµРґРЅРµРіРѕ Р°РєС‚РёРІРЅРѕРіРѕ РѕРєРЅР°
+		HWND                m_hWndFocus;            // С…РµРЅРґР» РѕРєРЅР° РЅР° РєРѕС‚РѕСЂРѕРј РЅР°С…РѕРґРёС‚СЃСЏ С„РѕРєСѓСЃ
+		HWND                m_hWndFocusLast;        // С…РµРЅРґР» РѕРєРЅР° РЅР° РєРѕС‚РѕСЂРѕРј РЅР°С…РѕРґРёР»СЃСЏ С„РѕРєСѓСЃ РїРѕСЃР»РµРґРЅРёР№ СЂР°Р·
+		BOOL                m_bConsole;             // TRUE, РµСЃР»Рё РѕРєРЅРѕ РєРѕРЅСЃРѕР»СЊРЅРѕРµ
+		HKL                 m_hKLCurrent;           // Р°РєС‚РёРІРЅР°СЏ СЂР°СЃРєР»Р°РґРєР°
+		HKL                 m_hKLLast;              // РїРѕСЃР»РµРґРЅСЏСЏ Р°РєС‚РёРІРЅР°СЏ СЂР°СЃРєР»Р°РґРєР°
+		DWORD               m_dwActProcessId;       // РР” Р°РєС‚РёРІРЅРѕРіРѕ РїСЂРѕС†РµСЃСЃР°
+		DWORD               m_dwActThreadId;        // РР” Р°РєС‚РёРІРЅРѕРіРѕ С‚СЂРµРґР°
+		EDITUITYPE          m_eEditUIType;          // РўРёРї РѕРєРЅР° РІРІРѕРґР° С‚РµРєСЃС‚Р°
+		ICONPOSITION        m_eIconPosition;        // РџРѕР·РёС†РёСЏ РѕРєРЅР° РёРЅРґРёРєР°С‚РѕСЂР°-РёРєРѕРЅРєРё
 
-		HANDLE              m_hEventCaretHide;      // событие сокрытия каретки
-		CRITICAL_SECTION    m_csCaretActivity;      // Критическая секция для изменения значения последней активности каретки
-		BOOL                m_bCaretActivity;       // TRUE, если каретка активна
-		HWND                m_hWndCaretActivity;    // хендл окна последней активности каретки
+		HANDLE              m_hEventCaretHide;      // СЃРѕР±С‹С‚РёРµ СЃРѕРєСЂС‹С‚РёСЏ РєР°СЂРµС‚РєРё
+		CRITICAL_SECTION    m_csCaretActivity;      // РљСЂРёС‚РёС‡РµСЃРєР°СЏ СЃРµРєС†РёСЏ РґР»СЏ РёР·РјРµРЅРµРЅРёСЏ Р·РЅР°С‡РµРЅРёСЏ РїРѕСЃР»РµРґРЅРµР№ Р°РєС‚РёРІРЅРѕСЃС‚Рё РєР°СЂРµС‚РєРё
+		BOOL                m_bCaretActivity;       // TRUE, РµСЃР»Рё РєР°СЂРµС‚РєР° Р°РєС‚РёРІРЅР°
+		HWND                m_hWndCaretActivity;    // С…РµРЅРґР» РѕРєРЅР° РїРѕСЃР»РµРґРЅРµР№ Р°РєС‚РёРІРЅРѕСЃС‚Рё РєР°СЂРµС‚РєРё
 		
 		CONSOLE_SCREEN_BUFFER_INFO m_csbiInfo;      // 
 		CONSOLE_FONT_INFO   m_cciFont;              // 
@@ -124,173 +124,173 @@ class CDlgMain :
 		COORD               m_sizeConFont;          //
 		CRect               m_rectConClient;        //
 		
-		CRect               m_rectTmpCaret;         // структура для временного использования
+		CRect               m_rectTmpCaret;         // СЃС‚СЂСѓРєС‚СѓСЂР° РґР»СЏ РІСЂРµРјРµРЅРЅРѕРіРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ
 
 	public:
 
-		// Конструктор по-умолчанию
+		// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ-СѓРјРѕР»С‡Р°РЅРёСЋ
 		CDlgMain();
 
-		// Деструктор по-умолчанию
+		// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ-СѓРјРѕР»С‡Р°РЅРёСЋ
 		~CDlgMain();
 
-		// Инициализация шаблона диалога
+		// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ С€Р°Р±Р»РѕРЅР° РґРёР°Р»РѕРіР°
 		VOID DoInitTemplate();
 
-		// Инициализация контролов диалога
+		// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РєРѕРЅС‚СЂРѕР»РѕРІ РґРёР°Р»РѕРіР°
 		VOID DoInitControls();
 
 	protected:
 
-		// Обработка сообщений
+		// РћР±СЂР°Р±РѕС‚РєР° СЃРѕРѕР±С‰РµРЅРёР№
 		virtual BOOL PreTranslateMessage(MSG* pMsg);
 
-		// Фоновая обработка сообщений
+		// Р¤РѕРЅРѕРІР°СЏ РѕР±СЂР°Р±РѕС‚РєР° СЃРѕРѕР±С‰РµРЅРёР№
 		virtual BOOL OnIdle();
 
-		// Инициализация диалога
+		// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РґРёР°Р»РѕРіР°
 		LRESULT OnInitDialog(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 
-		// Обработка WM_DESTROY
+		// РћР±СЂР°Р±РѕС‚РєР° WM_DESTROY
 		LRESULT OnDestroy(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 
-		// Обработка IDOK
+		// РћР±СЂР°Р±РѕС‚РєР° IDOK
 		LRESULT OnOK(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled);
 
-		// Обработка IDCANCEL
+		// РћР±СЂР°Р±РѕС‚РєР° IDCANCEL
 		LRESULT OnCancel(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled);
 
-		// Обработка ID_APP_EXIT
+		// РћР±СЂР°Р±РѕС‚РєР° ID_APP_EXIT
 		LRESULT OnExit(WORD /*wNotifyCode*/, WORD wID, HWND /*hWndCtl*/, BOOL& /*bHandled*/);
 
-		// Закрытие диалога
+		// Р—Р°РєСЂС‹С‚РёРµ РґРёР°Р»РѕРіР°
 		VOID CloseDialog(INT iVal);
 
-		// Поиск всех возможных языков программы
+		// РџРѕРёСЃРє РІСЃРµС… РІРѕР·РјРѕР¶РЅС‹С… СЏР·С‹РєРѕРІ РїСЂРѕРіСЂР°РјРјС‹
 		VOID SearchLanguage();
 
 		static BOOL CALLBACK SearchLanguageCallback(HMODULE hModule, LPCTSTR lpszType, 
 			LPTSTR lpszName, WORD wIDLanguage, LONG_PTR lParam);
 
-		// Поиск установленных в системе языков
+		// РџРѕРёСЃРє СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹С… РІ СЃРёСЃС‚РµРјРµ СЏР·С‹РєРѕРІ
 		VOID SearchInstallLanguage();
 
-		// Смена языка
+		// РЎРјРµРЅР° СЏР·С‹РєР°
 		LRESULT OnChangeLanguage(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& /*bHandled*/);
 
-		// Загрузка иконок флагов
+		// Р—Р°РіСЂСѓР·РєР° РёРєРѕРЅРѕРє С„Р»Р°РіРѕРІ
 		VOID LoadFlagIcons();
 
-		// Функция возвращает хендл иконки сформированной из текста
+		// Р¤СѓРЅРєС†РёСЏ РІРѕР·РІСЂР°С‰Р°РµС‚ С…РµРЅРґР» РёРєРѕРЅРєРё СЃС„РѕСЂРјРёСЂРѕРІР°РЅРЅРѕР№ РёР· С‚РµРєСЃС‚Р°
 		HICON GetIconFromStr(wstring wsText, BOOL bLarge, COLORREF crText, COLORREF crBackground);
 
-		// Проверка активной раскладки по таймеру
+		// РџСЂРѕРІРµСЂРєР° Р°РєС‚РёРІРЅРѕР№ СЂР°СЃРєР»Р°РґРєРё РїРѕ С‚Р°Р№РјРµСЂСѓ
 		LRESULT OnTimer(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 
-		// Возвращает активную раскладки
+		// Р’РѕР·РІСЂР°С‰Р°РµС‚ Р°РєС‚РёРІРЅСѓСЋ СЂР°СЃРєР»Р°РґРєРё
 		HKL GetActiveLayout();
 
-		// Возвращает координаты текстового курсора
+		// Р’РѕР·РІСЂР°С‰Р°РµС‚ РєРѕРѕСЂРґРёРЅР°С‚С‹ С‚РµРєСЃС‚РѕРІРѕРіРѕ РєСѓСЂСЃРѕСЂР°
 		BOOL CDlgMain::GetCursorRect(PRECT pRect);
 
-		// Вызов диалога настроек
+		// Р’С‹Р·РѕРІ РґРёР°Р»РѕРіР° РЅР°СЃС‚СЂРѕРµРє
 		LRESULT OnSettings(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/);
 
-		// устанавливает флаг текущей раскладки
+		// СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ С„Р»Р°Рі С‚РµРєСѓС‰РµР№ СЂР°СЃРєР»Р°РґРєРё
 		VOID SetFlagLanguage(HKL hklCurrent, CDlgFlag* pFlagDlg, BOOL bViewFlag, BOOL bViewLarge, BYTE bTrasparency);
 
-		// Изменение позиции каретки в GUI
+		// РР·РјРµРЅРµРЅРёРµ РїРѕР·РёС†РёРё РєР°СЂРµС‚РєРё РІ GUI
 		LRESULT OnCaretGUIRepos(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& /*bHandled*/);
 
-		// Изменение позиции каретки в консоли
+		// РР·РјРµРЅРµРЅРёРµ РїРѕР·РёС†РёРё РєР°СЂРµС‚РєРё РІ РєРѕРЅСЃРѕР»Рё
 		LRESULT OnCaretConsoleRepos(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& /*bHandled*/);
 
-		// Сокрытие каретки
+		// РЎРѕРєСЂС‹С‚РёРµ РєР°СЂРµС‚РєРё
 		LRESULT OnCaretHide(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& /*bHandled*/);
 
-		// обработка WM_SETTINGCHANGE
+		// РѕР±СЂР°Р±РѕС‚РєР° WM_SETTINGCHANGE
 		LRESULT OnSettingsChange(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& /*bHandled*/);
 
 	public:
 
-		// Загружает указанный ресурс
+		// Р—Р°РіСЂСѓР¶Р°РµС‚ СѓРєР°Р·Р°РЅРЅС‹Р№ СЂРµСЃСѓСЂСЃ
 		HGLOBAL GetResourceLang(LPWSTR lpResType, DWORD dwResID);
 
-		// Загружает строку по указанному идентификатору
+		// Р—Р°РіСЂСѓР¶Р°РµС‚ СЃС‚СЂРѕРєСѓ РїРѕ СѓРєР°Р·Р°РЅРЅРѕРјСѓ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ
 		wstring GetStringLang(DWORD dwResID);
 
-		// Вывод меню по нажатию левой кнопки мыши на значке в трее
+		// Р’С‹РІРѕРґ РјРµРЅСЋ РїРѕ РЅР°Р¶Р°С‚РёСЋ Р»РµРІРѕР№ РєРЅРѕРїРєРё РјС‹С€Рё РЅР° Р·РЅР°С‡РєРµ РІ С‚СЂРµРµ
 		VOID OnNotifyIconLButtonUp(const POINT& rpt);
 
-		// Вывод меню в трее по нажатию правой кнопки мыши
+		// Р’С‹РІРѕРґ РјРµРЅСЋ РІ С‚СЂРµРµ РїРѕ РЅР°Р¶Р°С‚РёСЋ РїСЂР°РІРѕР№ РєРЅРѕРїРєРё РјС‹С€Рё
 		VOID OnNotifyIconRButtonUp(const POINT& rpt);
 
-		// Возвращает список доступных языков
+		// Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє РґРѕСЃС‚СѓРїРЅС‹С… СЏР·С‹РєРѕРІ
 		inline CMapWordStr* GetMapLanguages(){return &m_mapLanguages;}
 
-		// Возвращает ИД выбранного языка программы
+		// Р’РѕР·РІСЂР°С‰Р°РµС‚ РР” РІС‹Р±СЂР°РЅРЅРѕРіРѕ СЏР·С‹РєР° РїСЂРѕРіСЂР°РјРјС‹
 		inline WORD GetLanguageID() {return m_wLanguageID;}
 
-		// Возвращает true, если активное окно консольное
+		// Р’РѕР·РІСЂР°С‰Р°РµС‚ true, РµСЃР»Рё Р°РєС‚РёРІРЅРѕРµ РѕРєРЅРѕ РєРѕРЅСЃРѕР»СЊРЅРѕРµ
 		inline BOOL ActiveWndIsConsole() {return m_bConsole;}
 
-		// возвращает хендл активного окна
+		// РІРѕР·РІСЂР°С‰Р°РµС‚ С…РµРЅРґР» Р°РєС‚РёРІРЅРѕРіРѕ РѕРєРЅР°
 		inline HWND GetActiveWnd() {return m_hWndActive;}
 
-		// Обновляет позицию окна текущей раскладки
+		// РћР±РЅРѕРІР»СЏРµС‚ РїРѕР·РёС†РёСЋ РѕРєРЅР° С‚РµРєСѓС‰РµР№ СЂР°СЃРєР»Р°РґРєРё
 		BOOL UpdateCaretFlagPos(CRect rectNew);
 
-		// Возвращает координаты каретки консольного окна
+		// Р’РѕР·РІСЂР°С‰Р°РµС‚ РєРѕРѕСЂРґРёРЅР°С‚С‹ РєР°СЂРµС‚РєРё РєРѕРЅСЃРѕР»СЊРЅРѕРіРѕ РѕРєРЅР°
 		BOOL GetConsoleCaretPos(SHORT sX, SHORT sY, RECT& rcCaret);
 
-		// Устанавливает время последней активности каретки
+		// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РІСЂРµРјСЏ РїРѕСЃР»РµРґРЅРµР№ Р°РєС‚РёРІРЅРѕСЃС‚Рё РєР°СЂРµС‚РєРё
 		inline VOID SetCaretActivity(BOOL bActivity, HWND hWnd);
 
-		// Возвращает время последней активности каретки
+		// Р’РѕР·РІСЂР°С‰Р°РµС‚ РІСЂРµРјСЏ РїРѕСЃР»РµРґРЅРµР№ Р°РєС‚РёРІРЅРѕСЃС‚Рё РєР°СЂРµС‚РєРё
 		inline BOOL GetCaretActivity();
 
-		// Устанавливает событие сокрытия окна-индикатора
+		// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ СЃРѕР±С‹С‚РёРµ СЃРѕРєСЂС‹С‚РёСЏ РѕРєРЅР°-РёРЅРґРёРєР°С‚РѕСЂР°
 		inline BOOL SetHideEvent(){return SetEvent(m_hEventCaretHide);}
 
-		// Возвращает TRUE, если окно-индикатор отображать в виде флага
+		// Р’РѕР·РІСЂР°С‰Р°РµС‚ TRUE, РµСЃР»Рё РѕРєРЅРѕ-РёРЅРґРёРєР°С‚РѕСЂ РѕС‚РѕР±СЂР°Р¶Р°С‚СЊ РІ РІРёРґРµ С„Р»Р°РіР°
 		inline BOOL GetViewFlag(){return m_bViewFlag;}
 		inline VOID SetViewFlag(BOOL bViewFlag){m_bViewFlag = bViewFlag;}
 
-		// Возвращает TRUE, если окно-индикатор большого размера
+		// Р’РѕР·РІСЂР°С‰Р°РµС‚ TRUE, РµСЃР»Рё РѕРєРЅРѕ-РёРЅРґРёРєР°С‚РѕСЂ Р±РѕР»СЊС€РѕРіРѕ СЂР°Р·РјРµСЂР°
 		inline BOOL GetViewLarge(){return m_bViewLarge;}
 		inline VOID SetViewLarge(BOOL bViewLarge){m_bViewLarge = bViewLarge;}
 
-		// Возвращает TRUE, если фон окна-индикатора прозрачный
+		// Р’РѕР·РІСЂР°С‰Р°РµС‚ TRUE, РµСЃР»Рё С„РѕРЅ РѕРєРЅР°-РёРЅРґРёРєР°С‚РѕСЂР° РїСЂРѕР·СЂР°С‡РЅС‹Р№
 		inline BOOL BGIsTransparent(){return (m_crBGIconAcronym & 0xFF000000) ? FALSE : TRUE;}
 
-		// Возвращает индекс прозрачности
+		// Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРЅРґРµРєСЃ РїСЂРѕР·СЂР°С‡РЅРѕСЃС‚Рё
 		inline BYTE GetTransparency(){return m_bTransparent;}
 		inline VOID SetTransparency(BYTE bTransparent){m_bTransparent = bTransparent;}
 
-		// Устанавливает иконку на указанном окне-индикаторе
+		// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РёРєРѕРЅРєСѓ РЅР° СѓРєР°Р·Р°РЅРЅРѕРј РѕРєРЅРµ-РёРЅРґРёРєР°С‚РѕСЂРµ
 		inline VOID SetFlagLanguage(CDlgFlag* pDlgFlag, BOOL bViewFlag, BOOL bViewLarge, BYTE bTrasparency)
 			{return SetFlagLanguage(m_hKLCurrent, pDlgFlag, bViewFlag, bViewLarge, bTrasparency);}
 
-		// Получение иконок с аббревиатурами установленных языков
+		// РџРѕР»СѓС‡РµРЅРёРµ РёРєРѕРЅРѕРє СЃ Р°Р±Р±СЂРµРІРёР°С‚СѓСЂР°РјРё СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹С… СЏР·С‹РєРѕРІ
 		BOOL GenerateAcronymIcons(COLORREF crText, COLORREF crBackground);
 
-		// Возвращает цвет текста иконок акронимов
+		// Р’РѕР·РІСЂР°С‰Р°РµС‚ С†РІРµС‚ С‚РµРєСЃС‚Р° РёРєРѕРЅРѕРє Р°РєСЂРѕРЅРёРјРѕРІ
 		inline COLORREF GetColorIconActronym() {return m_crIconAcronym;}
 		inline VOID SetColorIconActronym(COLORREF crIconAcronym){m_crIconAcronym = crIconAcronym;}
 
-		// Возвращает цвет фона
+		// Р’РѕР·РІСЂР°С‰Р°РµС‚ С†РІРµС‚ С„РѕРЅР°
 		inline COLORREF GetBGColorIconActronym() {return m_crBGIconAcronym;}
 		inline VOID SetBGColorIconActronym(COLORREF crBGIconAcronym){m_crBGIconAcronym = crBGIconAcronym;}
 
-		// Возвращает TRUE, если установлен автостарт
+		// Р’РѕР·РІСЂР°С‰Р°РµС‚ TRUE, РµСЃР»Рё СѓСЃС‚Р°РЅРѕРІР»РµРЅ Р°РІС‚РѕСЃС‚Р°СЂС‚
 		BOOL GetAutostart();
 
-		// Устанавливает автостарт
+		// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ Р°РІС‚РѕСЃС‚Р°СЂС‚
 		VOID SetAutostart(BOOL bAutostart);
 
-		// Возвращает позицию окна-индикатора относительно каретки
+		// Р’РѕР·РІСЂР°С‰Р°РµС‚ РїРѕР·РёС†РёСЋ РѕРєРЅР°-РёРЅРґРёРєР°С‚РѕСЂР° РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РєР°СЂРµС‚РєРё
 		inline ICONPOSITION GetIconPosition(){return m_eIconPosition;}
 
-		// Устанавливает позицию окна-индикатора относительно каретки
+		// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РїРѕР·РёС†РёСЋ РѕРєРЅР°-РёРЅРґРёРєР°С‚РѕСЂР° РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РєР°СЂРµС‚РєРё
 		VOID SetIconPosition(ICONPOSITION eIconPosition){m_eIconPosition = eIconPosition;}
 };

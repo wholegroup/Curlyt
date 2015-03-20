@@ -1,6 +1,6 @@
-#pragma once
+п»ї#pragma once
 
-// выключение варнингов
+// РІС‹РєР»СЋС‡РµРЅРёРµ РІР°СЂРЅРёРЅРіРѕРІ
 #define _CRT_SECURE_NO_WARNINGS
 #define _CRT_NON_CONFORMING_SWPRINTFS
 
@@ -20,7 +20,7 @@
 
 using namespace std;
 
-// отлов утечек памяти
+// РѕС‚Р»РѕРІ СѓС‚РµС‡РµРє РїР°РјСЏС‚Рё
 #ifdef _DEBUG
 	#define _CRTDBG_MAP_ALLOC
 
@@ -56,25 +56,25 @@ typedef agg::font_engine_win32_tt_int16                       font_engine_type;
 typedef agg::font_cache_manager<font_engine_type>             font_manager_type;
 typedef agg::conv_curve<font_manager_type::path_adaptor_type> conv_font_curve_type;
 
-// для создания иконки в трее
+// РґР»СЏ СЃРѕР·РґР°РЅРёСЏ РёРєРѕРЅРєРё РІ С‚СЂРµРµ
 #include "CTrayIconImpl.h"
 
-// для создания тредов
+// РґР»СЏ СЃРѕР·РґР°РЅРёСЏ С‚СЂРµРґРѕРІ
 #include "CThreadImpl.h"
 
-// для использования настроек программы
+// РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РЅР°СЃС‚СЂРѕРµРє РїСЂРѕРіСЂР°РјРјС‹
 #include "WTLAddons/CSettingsImpl.h"
 
-// главный модуль программы
+// РіР»Р°РІРЅС‹Р№ РјРѕРґСѓР»СЊ РїСЂРѕРіСЂР°РјРјС‹
 extern CAppModule g_Module;
 
-// версия программы (генерируется при сборке MSBuild)
+// РІРµСЂСЃРёСЏ РїСЂРѕРіСЂР°РјРјС‹ (РіРµРЅРµСЂРёСЂСѓРµС‚СЃСЏ РїСЂРё СЃР±РѕСЂРєРµ MSBuild)
 #include "Version.h"
 
-// различные константы, определения типов
+// СЂР°Р·Р»РёС‡РЅС‹Рµ РєРѕРЅСЃС‚Р°РЅС‚С‹, РѕРїСЂРµРґРµР»РµРЅРёСЏ С‚РёРїРѕРІ
 #include "Defines.h"
 
-// манифест
+// РјР°РЅРёС„РµСЃС‚
 #if defined _M_IX86
   #pragma comment(linker, "/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='x86' publicKeyToken='6595b64144ccf1df' language='*'\"")
 #elif defined _M_IA64

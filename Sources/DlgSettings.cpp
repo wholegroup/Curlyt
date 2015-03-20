@@ -1,4 +1,4 @@
-/*
+п»ї/*
  * Copyright (C) 2015 Andrey Rychkov <wholegroup@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,7 +21,7 @@
 #include "DlgSettings.h"
 
 //////////////////////////////////////////////////////////////////////////
-// Конструктор по-умолчанию
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ-СѓРјРѕР»С‡Р°РЅРёСЋ
 //
 CDlgSettings::CDlgSettings(CDlgMain *pMainDlg)
 {
@@ -31,14 +31,14 @@ CDlgSettings::CDlgSettings(CDlgMain *pMainDlg)
 
 
 //////////////////////////////////////////////////////////////////////////
-// Инициализация диалога
+// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РґРёР°Р»РѕРіР°
 //
 LRESULT CDlgSettings::OnInitDialog(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& /*bHandled*/)
 {
-	// выравниваем диалог по центру
+	// РІС‹СЂР°РІРЅРёРІР°РµРј РґРёР°Р»РѕРі РїРѕ С†РµРЅС‚СЂСѓ
 	CenterWindow();
 
-	// вставка в заголовок диалога версии программы
+	// РІСЃС‚Р°РІРєР° РІ Р·Р°РіРѕР»РѕРІРѕРє РґРёР°Р»РѕРіР° РІРµСЂСЃРёРё РїСЂРѕРіСЂР°РјРјС‹
 	std::vector<WCHAR> wcTitle(GetWindowTextLength() + 1);
 	GetWindowText(&wcTitle.front(), static_cast<int>(wcTitle.size()));
 
@@ -48,7 +48,7 @@ LRESULT CDlgSettings::OnInitDialog(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lP
 
 	SetWindowText(wsTitle.c_str());
 
-	// заполнение списка языков
+	// Р·Р°РїРѕР»РЅРµРЅРёРµ СЃРїРёСЃРєР° СЏР·С‹РєРѕРІ
 	m_cbLanguages   = static_cast<CComboBox>(GetDlgItem(IDC_COMBO_LANGUAGES));
 	m_wLanguageID   = m_pMainDlg->GetLanguageID();
 	m_pMapLanguages = m_pMainDlg->GetMapLanguages();
@@ -63,11 +63,11 @@ LRESULT CDlgSettings::OnInitDialog(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lP
 		}
 	}
 
-	// текст в виде каретки
+	// С‚РµРєСЃС‚ РІ РІРёРґРµ РєР°СЂРµС‚РєРё
 	m_sTextCaret1 = GetDlgItem(IDC_STATIC_VIEW_ICON);
 	m_sTextCaret2 = GetDlgItem(IDC_STATIC_CARET_POS);
 
-	//	установка режима отображения
+	//	СѓСЃС‚Р°РЅРѕРІРєР° СЂРµР¶РёРјР° РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ
 	m_btnViewText  = GetDlgItem(IDC_RADIO_VIEW_TEXT);
 	m_btnViewText.SetCheck(!m_pMainDlg->GetViewFlag());
 	
@@ -103,7 +103,7 @@ LRESULT CDlgSettings::OnInitDialog(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lP
 
 	PostMessage(WM_COMMAND, IDC_RADIO_VIEW_TEXT);
 
-	// установка позиции окна-индикатора
+	// СѓСЃС‚Р°РЅРѕРІРєР° РїРѕР·РёС†РёРё РѕРєРЅР°-РёРЅРґРёРєР°С‚РѕСЂР°
 	m_btnLeftTop = GetDlgItem(IDC_RADIO_LEFT_TOP);
 	m_btnLeftTop.SetCheck(ICONPOSITION_LEFT_TOP == m_pMainDlg->GetIconPosition() ? TRUE : FALSE);
 
@@ -128,7 +128,7 @@ LRESULT CDlgSettings::OnInitDialog(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lP
 	m_hlWWW.SetHyperLink(m_pMainDlg->GetStringLang(IDS_WWW).c_str());
 	m_hlWWW.SubclassWindow(GetDlgItem(IDC_HYPERLINK_WWW));
 
-	// изменение шрифтов
+	// РёР·РјРµРЅРµРЅРёРµ С€СЂРёС„С‚РѕРІ
 	CLogFont lfBold(static_cast<CStatic>(GetDlgItem(IDC_STATIC_WWW)).GetFont());
 	lfBold.SetBold();
 
@@ -145,7 +145,7 @@ LRESULT CDlgSettings::OnInitDialog(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lP
 	lfBold.MakeLarger(6);
 	static_cast<CStatic>(m_sTextCaret2).SetFont(lfBold.CreateFontIndirect());
 
-	// создание окна-индикатора раскладки
+	// СЃРѕР·РґР°РЅРёРµ РѕРєРЅР°-РёРЅРґРёРєР°С‚РѕСЂР° СЂР°СЃРєР»Р°РґРєРё
 	CRect rectCaretFlag(0, 0, 23, 23);
 
 	m_pCaretFlag = new CDlgFlag();
@@ -154,10 +154,10 @@ LRESULT CDlgSettings::OnInitDialog(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lP
 		WS_EX_NOACTIVATE | WS_EX_TRANSPARENT | WS_EX_LAYERED | WS_EX_TOOLWINDOW);
 	m_pCaretFlag->ShowWindow(SW_SHOW);
 
-	// обновление окна-индикатора раскладки
+	// РѕР±РЅРѕРІР»РµРЅРёРµ РѕРєРЅР°-РёРЅРґРёРєР°С‚РѕСЂР° СЂР°СЃРєР»Р°РґРєРё
 	UpdateTestCaretFlag();
 
-	// установка таймера, для создания мигающего курсора
+	// СѓСЃС‚Р°РЅРѕРІРєР° С‚Р°Р№РјРµСЂР°, РґР»СЏ СЃРѕР·РґР°РЅРёСЏ РјРёРіР°СЋС‰РµРіРѕ РєСѓСЂСЃРѕСЂР°
 	SetTimer(0, GetCaretBlinkTime());
 
 	return static_cast<LRESULT>(0);
@@ -165,14 +165,14 @@ LRESULT CDlgSettings::OnInitDialog(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lP
 
 
 //////////////////////////////////////////////////////////////////////////
-// Обработка WM_DESTROY
+// РћР±СЂР°Р±РѕС‚РєР° WM_DESTROY
 //
 LRESULT CDlgSettings::OnDestroy(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& /*bHandled*/)
 {
-	// удаление таймера
+	// СѓРґР°Р»РµРЅРёРµ С‚Р°Р№РјРµСЂР°
 	KillTimer(0);
 
-	// удаление окна индикатора для каретки
+	// СѓРґР°Р»РµРЅРёРµ РѕРєРЅР° РёРЅРґРёРєР°С‚РѕСЂР° РґР»СЏ РєР°СЂРµС‚РєРё
 	if (NULL != m_pCaretFlag)
 	{
 		if (m_pCaretFlag->IsWindow())
@@ -188,7 +188,7 @@ LRESULT CDlgSettings::OnDestroy(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lPara
 
 
 //////////////////////////////////////////////////////////////////////////
-// Обработка WM_TIMER - создание мигающего курсора
+// РћР±СЂР°Р±РѕС‚РєР° WM_TIMER - СЃРѕР·РґР°РЅРёРµ РјРёРіР°СЋС‰РµРіРѕ РєСѓСЂСЃРѕСЂР°
 //
 LRESULT CDlgSettings::OnTimer(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& /*bHandled*/)
 {
@@ -200,20 +200,20 @@ LRESULT CDlgSettings::OnTimer(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*
 
 
 //////////////////////////////////////////////////////////////////////////
-// Обработка IDOK - сохранение настроек
+// РћР±СЂР°Р±РѕС‚РєР° IDOK - СЃРѕС…СЂР°РЅРµРЅРёРµ РЅР°СЃС‚СЂРѕРµРє
 //
 LRESULT CDlgSettings::OnOK(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
-	// сохранение типа окна-индикатора (текст/флаг)
+	// СЃРѕС…СЂР°РЅРµРЅРёРµ С‚РёРїР° РѕРєРЅР°-РёРЅРґРёРєР°С‚РѕСЂР° (С‚РµРєСЃС‚/С„Р»Р°Рі)
 	m_pMainDlg->SetViewFlag(m_btnViewFlag.GetCheck());
 	
-	// сохранение размера окна-индикатора (маленькое/большое)
+	// СЃРѕС…СЂР°РЅРµРЅРёРµ СЂР°Р·РјРµСЂР° РѕРєРЅР°-РёРЅРґРёРєР°С‚РѕСЂР° (РјР°Р»РµРЅСЊРєРѕРµ/Р±РѕР»СЊС€РѕРµ)
 	m_pMainDlg->SetViewLarge(m_btnViewLarge.GetCheck());
 	
-	// сохранение цвета текста окна-индикатора
+	// СЃРѕС…СЂР°РЅРµРЅРёРµ С†РІРµС‚Р° С‚РµРєСЃС‚Р° РѕРєРЅР°-РёРЅРґРёРєР°С‚РѕСЂР°
 	m_pMainDlg->SetColorIconActronym(m_crText);
 	
-	// сохранение цвета фона окна-индикатора
+	// СЃРѕС…СЂР°РЅРµРЅРёРµ С†РІРµС‚Р° С„РѕРЅР° РѕРєРЅР°-РёРЅРґРёРєР°С‚РѕСЂР°
 	if (m_btnTransparent.GetCheck())
 	{
 		m_pMainDlg->SetBGColorIconActronym(0xFFFFFF & m_crBackground);
@@ -223,13 +223,13 @@ LRESULT CDlgSettings::OnOK(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/,
 		m_pMainDlg->SetBGColorIconActronym(0xFF000000 | m_crBackground);
 	}
 
-	// сохранение индекса прозрачности окна-индикатора
+	// СЃРѕС…СЂР°РЅРµРЅРёРµ РёРЅРґРµРєСЃР° РїСЂРѕР·СЂР°С‡РЅРѕСЃС‚Рё РѕРєРЅР°-РёРЅРґРёРєР°С‚РѕСЂР°
 	m_pMainDlg->SetTransparency(static_cast<BYTE>(m_tbTransparency.GetPos()));
 
-	// сохранение значения автостарта программы
+	// СЃРѕС…СЂР°РЅРµРЅРёРµ Р·РЅР°С‡РµРЅРёСЏ Р°РІС‚РѕСЃС‚Р°СЂС‚Р° РїСЂРѕРіСЂР°РјРјС‹
 	m_pMainDlg->SetAutostart(m_btnAutostart.GetCheck());
 
-	// сохранение позиции окна-индикатора относительно каретки
+	// СЃРѕС…СЂР°РЅРµРЅРёРµ РїРѕР·РёС†РёРё РѕРєРЅР°-РёРЅРґРёРєР°С‚РѕСЂР° РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РєР°СЂРµС‚РєРё
 	ICONPOSITION ipApply = DEFAULT_ICONPOSITION;
 	
 	ipApply = m_btnLeftTop.GetCheck()     ? ICONPOSITION_LEFT_TOP : ipApply;
@@ -241,7 +241,7 @@ LRESULT CDlgSettings::OnOK(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/,
 	
 	m_pMainDlg->SetIconPosition(ipApply);
 
-	// закрытие диалога
+	// Р·Р°РєСЂС‹С‚РёРµ РґРёР°Р»РѕРіР°
 	CloseDialog(IDOK);
 
 	return 0;
@@ -249,7 +249,7 @@ LRESULT CDlgSettings::OnOK(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/,
 
 
 //////////////////////////////////////////////////////////////////////////
-// Обработка IDCANCEL
+// РћР±СЂР°Р±РѕС‚РєР° IDCANCEL
 //
 LRESULT CDlgSettings::OnCancel(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
@@ -260,7 +260,7 @@ LRESULT CDlgSettings::OnCancel(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCt
 
 
 //////////////////////////////////////////////////////////////////////////
-// Инициализация шаблона диалога
+// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ С€Р°Р±Р»РѕРЅР° РґРёР°Р»РѕРіР°
 //
 VOID CDlgSettings::DoInitTemplate() 
 {
@@ -269,7 +269,7 @@ VOID CDlgSettings::DoInitTemplate()
 
 
 //////////////////////////////////////////////////////////////////////////
-// Инициализация контролов диалога
+// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РєРѕРЅС‚СЂРѕР»РѕРІ РґРёР°Р»РѕРіР°
 //
 VOID CDlgSettings::DoInitControls() 
 {
@@ -278,7 +278,7 @@ VOID CDlgSettings::DoInitControls()
 
 
 //////////////////////////////////////////////////////////////////////////
-// Закрытие диалога
+// Р—Р°РєСЂС‹С‚РёРµ РґРёР°Р»РѕРіР°
 //
 VOID CDlgSettings::CloseDialog(int nVal)
 {
@@ -287,7 +287,7 @@ VOID CDlgSettings::CloseDialog(int nVal)
 
 
 //////////////////////////////////////////////////////////////////////////
-// Смена языка программы
+// РЎРјРµРЅР° СЏР·С‹РєР° РїСЂРѕРіСЂР°РјРјС‹
 //
 LRESULT CDlgSettings::OnChangeLanguage(WORD wNotifyCode, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
@@ -307,7 +307,7 @@ LRESULT CDlgSettings::OnChangeLanguage(WORD wNotifyCode, WORD /*wID*/, HWND /*hW
 
 
 //////////////////////////////////////////////////////////////////////////
-// Смена цвета текста
+// РЎРјРµРЅР° С†РІРµС‚Р° С‚РµРєСЃС‚Р°
 //
 LRESULT CDlgSettings::OnChangeColor(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
@@ -324,7 +324,7 @@ LRESULT CDlgSettings::OnChangeColor(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*h
 
 
 //////////////////////////////////////////////////////////////////////////
-// Смена цвета фона
+// РЎРјРµРЅР° С†РІРµС‚Р° С„РѕРЅР°
 //
 LRESULT CDlgSettings::OnChangeBackground(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
@@ -341,7 +341,7 @@ LRESULT CDlgSettings::OnChangeBackground(WORD /*wNotifyCode*/, WORD /*wID*/, HWN
 
 
 //////////////////////////////////////////////////////////////////////////
-// Смена режима отображения
+// РЎРјРµРЅР° СЂРµР¶РёРјР° РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ
 //
 LRESULT CDlgSettings::OnChangeView(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
@@ -373,7 +373,7 @@ LRESULT CDlgSettings::OnChangeView(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hW
 
 
 //////////////////////////////////////////////////////////////////////////
-// Изменение прозрачности
+// РР·РјРµРЅРµРЅРёРµ РїСЂРѕР·СЂР°С‡РЅРѕСЃС‚Рё
 //
 LRESULT CDlgSettings::OnChangeTransparent(INT wID, LPNMHDR /*pnmh*/, BOOL& /*bHandled*/)
 {
@@ -391,11 +391,11 @@ LRESULT CDlgSettings::OnChangeTransparent(INT wID, LPNMHDR /*pnmh*/, BOOL& /*bHa
 
 
 //////////////////////////////////////////////////////////////////////////
-// Обновляет изображение окна-индикатора
+// РћР±РЅРѕРІР»СЏРµС‚ РёР·РѕР±СЂР°Р¶РµРЅРёРµ РѕРєРЅР°-РёРЅРґРёРєР°С‚РѕСЂР°
 //
 VOID CDlgSettings::UpdateTestCaretFlag()
 {
-	// если окно-индикатора в виде текста, генерируем иконки
+	// РµСЃР»Рё РѕРєРЅРѕ-РёРЅРґРёРєР°С‚РѕСЂР° РІ РІРёРґРµ С‚РµРєСЃС‚Р°, РіРµРЅРµСЂРёСЂСѓРµРј РёРєРѕРЅРєРё
 	if (FALSE == m_btnViewFlag.GetCheck())
 	{
 		if (m_btnTransparent.GetCheck())
@@ -408,27 +408,27 @@ VOID CDlgSettings::UpdateTestCaretFlag()
 		}
 	}
 	
-	// установка иконки в окно-индикатор
+	// СѓСЃС‚Р°РЅРѕРІРєР° РёРєРѕРЅРєРё РІ РѕРєРЅРѕ-РёРЅРґРёРєР°С‚РѕСЂ
 	m_pMainDlg->SetFlagLanguage(m_pCaretFlag, m_btnViewFlag.GetCheck(), 
 		m_btnViewLarge.GetCheck(), static_cast<BYTE>(m_tbTransparency.GetPos()));
 
-	// обновление позиции окна-индикатора
+	// РѕР±РЅРѕРІР»РµРЅРёРµ РїРѕР·РёС†РёРё РѕРєРЅР°-РёРЅРґРёРєР°С‚РѕСЂР°
 	PostMessage(WM_COMMAND, IDC_RADIO_LEFT_TOP);
 }
 
 
 //////////////////////////////////////////////////////////////////////////
-// Изменение позиции окна-индикатора
+// РР·РјРµРЅРµРЅРёРµ РїРѕР·РёС†РёРё РѕРєРЅР°-РёРЅРґРёРєР°С‚РѕСЂР°
 //
 LRESULT CDlgSettings::OnChangePos(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
 {
-	// выход, если окно-индикатор не существует
+	// РІС‹С…РѕРґ, РµСЃР»Рё РѕРєРЅРѕ-РёРЅРґРёРєР°С‚РѕСЂ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚
 	if (!m_pCaretFlag || !m_pCaretFlag->IsWindow())
 	{
 		return static_cast<LRESULT>(0);
 	}
 
-	// вычисление новой позиции окна-индикатора
+	// РІС‹С‡РёСЃР»РµРЅРёРµ РЅРѕРІРѕР№ РїРѕР·РёС†РёРё РѕРєРЅР°-РёРЅРґРёРєР°С‚РѕСЂР°
 	CRect rectNew;
 	LONG  lWidth = m_btnViewLarge.GetCheck() ? 24 : 16;
 	
@@ -475,7 +475,7 @@ LRESULT CDlgSettings::OnChangePos(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWn
 		rectNew.MoveToY(rectNew.top + rectNew.Height());
 	}
 
-	// изменение позиции окна-индикатора
+	// РёР·РјРµРЅРµРЅРёРµ РїРѕР·РёС†РёРё РѕРєРЅР°-РёРЅРґРёРєР°С‚РѕСЂР°
 	m_pCaretFlag->SetWindowPos(NULL, &rectNew, SWP_NOACTIVATE | SWP_NOSIZE | SWP_SHOWWINDOW);
 
 	return static_cast<LRESULT>(0);
